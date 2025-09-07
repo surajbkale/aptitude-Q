@@ -1,0 +1,76 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  tests     Test[]
+}
+
+model Question {
+  id            Int            @id @default(autoincrement())
+  text          String
+  options       Json
+  answer        String
+  difficulty    Difficulty
+  topic         Topic
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  testQuestions TestQuestion[]
+}
+
+model Test {
+  id            Int            @id @default(autoincrement())
+  user          User           @relation(fields: [userId], references: [id])
+  userId        Int
+  mode          TestMode
+  topic         TopicMode
+  score         Int            @default(0)
+  createdAt     DateTime       @default(now())
+  testQuestions TestQuestion[]
+}
+
+model TestQuestion {
+  id         Int      @id @default(autoincrement())
+  test       Test     @relation(fields: [testId], references: [id])
+  testId     Int
+  question   Question @relation(fields: [questionId], references: [id])
+  questionId Int
+  userAnswer String?
+  isCorrect  Boolean?
+}
+
+enum Difficulty {
+  EASY
+  MEDIUM
+  HARD
+}
+
+enum Topic {
+  QUANTITATIVE
+  LOGICAL
+  VERBAL
+  MIXED
+}
+
+enum TestMode {
+  EASY
+  MEDIUM
+  HARD
+  MIXED
+}
+
+enum TopicMode {
+  TOPICWISE
+  MIXED
+}
