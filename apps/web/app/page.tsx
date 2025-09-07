@@ -7,7 +7,6 @@ import {
   Users,
   Award,
   Clock,
-  CheckCircle,
   Star,
   Menu,
   X,
