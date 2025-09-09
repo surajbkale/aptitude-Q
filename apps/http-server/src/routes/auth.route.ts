@@ -5,8 +5,6 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { Request, Response } from "express";
 
-
-
 const router: Router = Router();
 
 router.post("/sign-up", async (req: Request, res: Response) => {
