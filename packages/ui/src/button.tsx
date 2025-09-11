@@ -127,170 +127,170 @@ interface LoadingStates {
   [key: string]: boolean;
 }
 
-// // Demo component with proper TypeScript typing
-// const ButtonDemo: React.FC = () => {
-//   const [loadingStates, setLoadingStates] = React.useState<LoadingStates>({});
+// Demo component with proper TypeScript typing
+const ButtonDemo: React.FC = () => {
+  const [loadingStates, setLoadingStates] = React.useState<LoadingStates>({});
 
-//   const handleLoadingDemo = (buttonId: string): void => {
-//     setLoadingStates(prev => ({ ...prev, [buttonId]: true }));
-//     setTimeout(() => {
-//       setLoadingStates(prev => ({ ...prev, [buttonId]: false }));
-//     }, 2000);
-//   };
+  const handleLoadingDemo = (buttonId: string): void => {
+    setLoadingStates(prev => ({ ...prev, [buttonId]: true }));
+    setTimeout(() => {
+      setLoadingStates(prev => ({ ...prev, [buttonId]: false }));
+    }, 2000);
+  };
 
-//   const handleAlert = (message: string): void => {
-//     alert(message);
-//   };
+  const handleAlert = (message: string): void => {
+    alert(message);
+  };
 
-//   return (
-//     <div className="p-8 bg-gray-50 min-h-screen">
-//       <div className="max-w-6xl mx-auto">
-//         <h1 className="text-3xl font-bold text-gray-900 mb-8">Generic Button Component (TypeScript)</h1>
+  return (
+    <div className="p-8 bg-gray-50 min-h-screen">
+      <div className="max-w-6xl mx-auto">
+        <h1 className="text-3xl font-bold text-gray-900 mb-8">Generic Button Component (TypeScript)</h1>
         
-//         {/* Variants */}
-//         <div className="mb-8">
-//           <h2 className="text-xl font-semibold text-gray-800 mb-4">Variants</h2>
-//           <div className="flex flex-wrap gap-4">
-//             <Button variant="primary">Primary</Button>
-//             <Button variant="secondary">Secondary</Button>
-//             <Button variant="success">Success</Button>
-//             <Button variant="danger">Danger</Button>
-//             <Button variant="warning">Warning</Button>
-//             <Button variant="info">Info</Button>
-//             <Button variant="outline">Outline</Button>
-//             <Button variant="ghost">Ghost</Button>
-//             <Button variant="link">Link</Button>
-//           </div>
-//         </div>
+        {/* Variants */}
+        <div className="mb-8">
+          <h2 className="text-xl font-semibold text-gray-800 mb-4">Variants</h2>
+          <div className="flex flex-wrap gap-4">
+            <Button variant="primary">Primary</Button>
+            <Button variant="secondary">Secondary</Button>
+            <Button variant="success">Success</Button>
+            <Button variant="danger">Danger</Button>
+            <Button variant="warning">Warning</Button>
+            <Button variant="info">Info</Button>
+            <Button variant="outline">Outline</Button>
+            <Button variant="ghost">Ghost</Button>
+            <Button variant="link">Link</Button>
+          </div>
+        </div>
 
-//         {/* Sizes */}
-//         <div className="mb-8">
-//           <h2 className="text-xl font-semibold text-gray-800 mb-4">Sizes</h2>
-//           <div className="flex flex-wrap items-center gap-4">
-//             <Button size="xs">Extra Small</Button>
-//             <Button size="sm">Small</Button>
-//             <Button size="md">Medium</Button>
-//             <Button size="lg">Large</Button>
-//             <Button size="xl">Extra Large</Button>
-//           </div>
-//         </div>
+        {/* Sizes */}
+        <div className="mb-8">
+          <h2 className="text-xl font-semibold text-gray-800 mb-4">Sizes</h2>
+          <div className="flex flex-wrap items-center gap-4">
+            <Button size="xs">Extra Small</Button>
+            <Button size="sm">Small</Button>
+            <Button size="md">Medium</Button>
+            <Button size="lg">Large</Button>
+            <Button size="xl">Extra Large</Button>
+          </div>
+        </div>
 
-//         {/* States */}
-//         <div className="mb-8">
-//           <h2 className="text-xl font-semibold text-gray-800 mb-4">States</h2>
-//           <div className="flex flex-wrap gap-4">
-//             <Button>Normal</Button>
-//             <Button disabled>Disabled</Button>
-//             <Button 
-//               loading={loadingStates.loading1 || false}
-//               onClick={() => handleLoadingDemo('loading1')}
-//             >
-//               {loadingStates.loading1 ? 'Loading...' : 'Click for Loading'}
-//             </Button>
-//           </div>
-//         </div>
+        {/* States */}
+        <div className="mb-8">
+          <h2 className="text-xl font-semibold text-gray-800 mb-4">States</h2>
+          <div className="flex flex-wrap gap-4">
+            <Button>Normal</Button>
+            <Button disabled>Disabled</Button>
+            <Button 
+              loading={loadingStates.loading1 || false}
+              onClick={() => handleLoadingDemo('loading1')}
+            >
+              {loadingStates.loading1 ? 'Loading...' : 'Click for Loading'}
+            </Button>
+          </div>
+        </div>
 
-//         {/* With Icons */}
-//         <div className="mb-8">
-//           <h2 className="text-xl font-semibold text-gray-800 mb-4">With Icons</h2>
-//           <div className="flex flex-wrap gap-4">
-//             <Button leftIcon={<Download />}>Download</Button>
-//             <Button rightIcon={<ChevronRight />}>Next</Button>
-//             <Button 
-//               variant="outline" 
-//               leftIcon={<Download />}
-//               rightIcon={<ChevronRight />}
-//             >
-//               Both Icons
-//             </Button>
-//           </div>
-//         </div>
+        {/* With Icons */}
+        <div className="mb-8">
+          <h2 className="text-xl font-semibold text-gray-800 mb-4">With Icons</h2>
+          <div className="flex flex-wrap gap-4">
+            <Button leftIcon={<Download />}>Download</Button>
+            <Button rightIcon={<ChevronRight />}>Next</Button>
+            <Button 
+              variant="outline" 
+              leftIcon={<Download />}
+              rightIcon={<ChevronRight />}
+            >
+              Both Icons
+            </Button>
+          </div>
+        </div>
 
-//         {/* Full Width */}
-//         <div className="mb-8">
-//           <h2 className="text-xl font-semibold text-gray-800 mb-4">Full Width</h2>
-//           <div className="max-w-md">
-//             <Button fullWidth variant="primary" className="mb-2">
-//               Full Width Primary
-//             </Button>
-//             <Button fullWidth variant="outline">
-//               Full Width Outline
-//             </Button>
-//           </div>
-//         </div>
+        {/* Full Width */}
+        <div className="mb-8">
+          <h2 className="text-xl font-semibold text-gray-800 mb-4">Full Width</h2>
+          <div className="max-w-md">
+            <Button fullWidth variant="primary" className="mb-2">
+              Full Width Primary
+            </Button>
+            <Button fullWidth variant="outline">
+              Full Width Outline
+            </Button>
+          </div>
+        </div>
 
-//         {/* Interactive Examples */}
-//         <div className="mb-8">
-//           <h2 className="text-xl font-semibent text-gray-800 mb-4">Interactive Examples</h2>
-//           <div className="flex flex-wrap gap-4">
-//             <Button 
-//               variant="success"
-//               onClick={() => handleAlert('Success button clicked!')}
-//             >
-//               Click Me
-//             </Button>
-//             <Button 
-//               variant="danger"
-//               loading={loadingStates.delete || false}
-//               onClick={() => handleLoadingDemo('delete')}
-//             >
-//               {loadingStates.delete ? 'Deleting...' : 'Delete Item'}
-//             </Button>
-//             <Button 
-//               variant="info"
-//               leftIcon={<Download />}
-//               loading={loadingStates.download || false}
-//               onClick={() => handleLoadingDemo('download')}
-//             >
-//               {loadingStates.download ? 'Downloading...' : 'Download File'}
-//             </Button>
-//           </div>
-//         </div>
+        {/* Interactive Examples */}
+        <div className="mb-8">
+          <h2 className="text-xl font-semibent text-gray-800 mb-4">Interactive Examples</h2>
+          <div className="flex flex-wrap gap-4">
+            <Button 
+              variant="success"
+              onClick={() => handleAlert('Success button clicked!')}
+            >
+              Click Me
+            </Button>
+            <Button 
+              variant="danger"
+              loading={loadingStates.delete || false}
+              onClick={() => handleLoadingDemo('delete')}
+            >
+              {loadingStates.delete ? 'Deleting...' : 'Delete Item'}
+            </Button>
+            <Button 
+              variant="info"
+              leftIcon={<Download />}
+              loading={loadingStates.download || false}
+              onClick={() => handleLoadingDemo('download')}
+            >
+              {loadingStates.download ? 'Downloading...' : 'Download File'}
+            </Button>
+          </div>
+        </div>
 
-//         {/* Custom Styling */}
-//         <div className="mb-8">
-//           <h2 className="text-xl font-semibold text-gray-800 mb-4">Custom Styling</h2>
-//           <div className="flex flex-wrap gap-4">
-//             <Button 
-//               variant="primary"
-//               className="shadow-lg transform hover:scale-105"
-//             >
-//               Custom Hover Effect
-//             </Button>
-//             <Button 
-//               variant="outline"
-//               className="border-purple-500 text-purple-500 hover:bg-purple-50"
-//             >
-//               Custom Colors
-//             </Button>
-//           </div>
-//         </div>
+        {/* Custom Styling */}
+        <div className="mb-8">
+          <h2 className="text-xl font-semibold text-gray-800 mb-4">Custom Styling</h2>
+          <div className="flex flex-wrap gap-4">
+            <Button 
+              variant="primary"
+              className="shadow-lg transform hover:scale-105"
+            >
+              Custom Hover Effect
+            </Button>
+            <Button 
+              variant="outline"
+              className="border-purple-500 text-purple-500 hover:bg-purple-50"
+            >
+              Custom Colors
+            </Button>
+          </div>
+        </div>
 
-//         {/* Type Safety Examples */}
-//         <div className="mb-8">
-//           <h2 className="text-xl font-semibold text-gray-800 mb-4">Type Safety Examples</h2>
-//           <div className="flex flex-wrap gap-4">
-//             <Button type="submit" variant="success">
-//               Submit Form
-//             </Button>
-//             <Button type="reset" variant="secondary">
-//               Reset Form
-//             </Button>
-//             <Button 
-//               type="button"
-//               variant="primary"
-//               onClick={(e) => console.log('Button clicked:', e.currentTarget)}
-//             >
-//               Log Event
-//             </Button>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
+        {/* Type Safety Examples */}
+        <div className="mb-8">
+          <h2 className="text-xl font-semibold text-gray-800 mb-4">Type Safety Examples</h2>
+          <div className="flex flex-wrap gap-4">
+            <Button type="submit" variant="success">
+              Submit Form
+            </Button>
+            <Button type="reset" variant="secondary">
+              Reset Form
+            </Button>
+            <Button 
+              type="button"
+              variant="primary"
+              onClick={(e) => console.log('Button clicked:', e.currentTarget)}
+            >
+              Log Event
+            </Button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
-// export default ButtonDemo;
+export default ButtonDemo;
 
 // Export the Button component and types for use in other files
 export { Button };
