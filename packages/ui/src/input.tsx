@@ -249,33 +249,33 @@ const baseStyles: string = `
       )}
 
       {/* Input Container */}
-      <div className='relative'>
-        {/* Left Icon */}
-        {leftIcon && (
-          <div 
-            className={`absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 ${onLeftIconClick ? 'cursor-pointer hover:text-gray-600' : ''}`}
-            onClick={onLeftIconClick}
-          >
-            {leftIcon}
-          </div>
-        )}
+      <div className="relative flex items-center">
+      {/* Left Icon */}
+      {leftIcon && (
+        <button
+          type="button"
+          className={`absolute left-3 flex items-center justify-center text-gray-400 ${onLeftIconClick ? 'cursor-pointer hover:text-gray-600' : ''}`}
+          onClick={onLeftIconClick}
+          tabIndex={-1} // prevents icon from being focusable
+        >
+          {leftIcon}
+        </button>
+      )}
 
-        {/* Input Element  */}
-        {renderInput()}
+      {/* Input Element */}
+      {renderInput()}
 
-        {/* Right Icon  */}
-        {(rightIcon || type === 'password') && (
-          <div 
-            className={`absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 ${(onRightIconClick || type === 'password') ? 'cursor-pointer hover:text-gray-600' : ''}`}
-            onClick={type === 'password' ? togglePasswordVisibility : onRightIconClick}
-          >
-            {type === 'password' ? (
-              <EyeIcon isOpen={showPassword} />
-            ) : (
-              rightIcon
-            )}
-          </div>
-        )}
+      {/* Right Icon */}
+      {(rightIcon || type === 'password') && (
+        <button
+          type="button"
+          className={`absolute right-3 flex items-center justify-center text-gray-400 ${(onRightIconClick || type === 'password') ? 'cursor-pointer hover:text-gray-600' : ''}`}
+          onClick={type === 'password' ? togglePasswordVisibility : onRightIconClick}
+          tabIndex={-1}
+        >
+          {type === 'password' ? <EyeIcon isOpen={showPassword} /> : rightIcon}
+        </button>
+      )}
       </div>
 
       {/* Helper Text or Error */}
